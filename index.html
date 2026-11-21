@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101828">
+  <title>Vedansh | Shop smarter</title>
+  <style>
+    :root{--ink:#172033;--muted:#667085;--line:#e8ebf0;--bg:#f7f8fb;--brand:#635bff;--brand2:#8b5cf6;--green:#0e9f6e;--orange:#ff9f43}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    button,input,select{font:inherit}button{cursor:pointer}.topbar{background:#101828;color:#dbe2f0;text-align:center;padding:9px 14px;font-size:12px;letter-spacing:.2px}
+    header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{max-width:1180px;margin:auto;padding:17px 22px;display:flex;align-items:center;gap:25px}
+    .logo{font-size:26px;font-weight:850;letter-spacing:-1.2px;color:var(--ink);text-decoration:none}.logo span{color:var(--brand)}
+    .search{flex:1;display:flex;background:#f3f4f8;border:1px solid #eceef3;border-radius:12px;overflow:hidden}.search input{width:100%;border:0;background:transparent;padding:13px 15px;outline:none}.search button{border:0;background:var(--brand);color:white;padding:0 19px;font-weight:700}
+    .nav-actions{display:flex;gap:10px}.nav-actions button,.outline{background:white;border:1px solid var(--line);border-radius:10px;padding:10px 13px;color:var(--ink);font-weight:650}
+    .hero{max-width:1180px;margin:28px auto 22px;padding:0 22px}.hero-card{border-radius:24px;overflow:hidden;background:linear-gradient(115deg,#171b39,#3b3488 58%,#735cf4);color:white;padding:48px 48px;position:relative;min-height:270px}
+    .hero-card:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:9%;top:-65px;background:rgba(255,255,255,.09);box-shadow:0 0 0 35px rgba(255,255,255,.05),0 0 0 75px rgba(255,255,255,.035)}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.7px;color:#c8c5ff;font-weight:800}.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-1.8px;max-width:570px;margin:13px 0}.hero p{color:#e2e1ff;max-width:490px;line-height:1.6;margin:0 0 24px}.primary{border:0;border-radius:10px;background:#fff;color:#29245f;padding:12px 18px;font-weight:800}.hero-note{position:absolute;right:10%;bottom:34px;z-index:1;font-size:68px}
+    main{max-width:1180px;margin:auto;padding:0 22px 60px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:35px 0 17px}.section-head h2{font-size:23px;letter-spacing:-.5px;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.category{background:white;border:1px solid var(--line);border-radius:15px;padding:17px 10px;text-align:center;font-weight:700;color:#30394d}.category .emoji{display:block;font-size:27px;margin-bottom:8px}
+    .deal-strip{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#fff4e8;border:1px solid #ffe4c6;border-radius:15px;padding:17px 20px;margin:24px 0}.deal-strip strong{font-size:17px}.deal-strip span{color:#92551b;font-size:13px}.deal-tag{background:#ff9f43;color:#402100;padding:8px 12px;border-radius:9px;font-weight:900;white-space:nowrap}
+    .toolbar{display:flex;gap:10px;align-items:center}.toolbar select{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink)}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .18s,box-shadow .18s}.product:hover{transform:translateY(-3px);box-shadow:0 12px 28px #1d293910}.product-art{height:175px;display:grid;place-items:center;font-size:70px;background:linear-gradient(135deg,#f1f2ff,#f8f4ff);position:relative}.product-art.green{background:linear-gradient(135deg,#e7f8f1,#f4fbf7)}.product-art.orange{background:linear-gradient(135deg,#fff0df,#fff8ef)}.product-art.blue{background:linear-gradient(135deg,#e7f3ff,#f3f8ff)}.pill{position:absolute;top:12px;left:12px;background:#e8fff4;color:#08764f;font-size:10px;font-weight:850;padding:6px 8px;border-radius:30px}.product-info{padding:14px}.product-info h3{font-size:14px;margin:0 0 6px}.rating{font-size:11px;color:#a16b14;margin-bottom:10px}.price{font-weight:850;font-size:18px}.old{font-size:12px;color:#98a2b3;text-decoration:line-through;margin-left:5px}.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:13px}.add{border:0;background:#efefff;color:#5148dc;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:800}.add:hover{background:var(--brand);color:#fff}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.feature{background:white;border:1px solid var(--line);border-radius:15px;padding:19px}.feature b{display:block;margin:8px 0 5px}.feature p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}.feature-icon{font-size:25px}
+    footer{background:#101828;color:#d0d5dd;padding:36px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-inner p{color:#98a2b3;font-size:13px;max-width:430px;line-height:1.6}.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#d0d5dd}
+    .overlay{display:none;position:fixed;inset:0;background:#10182888;z-index:10;justify-content:flex-end}.overlay.open{display:flex}.drawer{width:min(420px,100%);background:white;height:100%;padding:23px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer-head h2{margin:0}.close{border:0;background:#f1f2f6;border-radius:9px;padding:8px 11px}.cart-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:15px 0;font-size:14px}.cart-row small{display:block;color:var(--muted);margin-top:4px}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:white;border-radius:6px;width:25px;height:25px}.cart-total{display:flex;justify-content:space-between;font-weight:850;margin:20px 0}.checkout{width:100%;padding:13px;border:0;border-radius:10px;background:var(--brand);color:white;font-weight:800}.empty{color:var(--muted);text-align:center;padding:55px 10px}.modal{display:none;position:fixed;inset:0;background:#10182899;z-index:20;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modal-card{background:white;border-radius:18px;padding:24px;max-width:430px;width:100%}.modal-card h2{margin-top:0}.modal-card p{color:var(--muted);font-size:14px;line-height:1.6}.modal-card input{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;margin:7px 0 13px}.modal-card button{padding:11px 14px;border-radius:9px;border:0;background:var(--brand);color:white;font-weight:800}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:#172033;color:white;padding:12px 17px;border-radius:10px;font-size:13px;transition:.25s;z-index:30;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:800px){.nav{flex-wrap:wrap;gap:12px}.logo{margin-right:auto}.search{order:3;flex-basis:100%}.hero-card{padding:34px 25px}.hero-note{right:7%;bottom:18px;font-size:48px;opacity:.75}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+    @media(max-width:430px){.nav-actions button{padding:8px 9px;font-size:12px}.hero-card{min-height:300px}.hero-note{right:8%;bottom:14px}.product-art{height:135px;font-size:56px}.deal-strip{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="topbar">WELCOME TO VEDANSH — GREAT FINDS, FAIR PRICES & EXCITING DEALS</div>
+  <header>
+    <nav class="nav">
+      <a class="logo" href="#">Vedansh<span>.</span></a>
+      <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Search for products..." aria-label="Search products"><button type="submit">Search</button></form>
+      <div class="nav-actions"><button id="sellerBtn">Sell with us</button><button id="cartBtn">🛒 Cart <span id="cartCount">0</span></button></div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">A better way to shop</div>
+      <h1>Good finds.<br>Great prices.</h1>
+      <p>Discover everyday essentials, explore exciting deals and enjoy a simple shopping experience with Vedansh.</p>
+      <button class="primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore products&nbsp; →</button>
+      <div class="hero-note" aria-hidden="true">🛍️</div>
+    </div>
+  </section>
+
+  <main>
+    <section>
+      <div class="section-head"><div><h2>Shop by category</h2><p>Find what you need, all in one place.</p></div></div>
+      <div class="categories">
+        <button class="category" data-category="Electronics"><span class="emoji">🎧</span>Electronics</button>
+        <button class="category" data-category="Fashion"><span class="emoji">👕</span>Fashion</button>
+        <button class="category" data-category="Home"><span class="emoji">🏠</span>Home</button>
+        <button class="category" data-category="Lifestyle"><span class="emoji">🎒</span>Lifestyle</button>
+        <button class="category" data-category="Accessories"><span class="emoji">⌚</span>Accessories</button>
+        <button class="category" data-category="All"><span class="emoji">✨</span>All items</button>
+      </div>
+    </section>
+
+    <div class="deal-strip"><div><strong>Big deals are coming!</strong><br><span>Look out for special offers and redeem codes on Vedansh.</span></div><div class="deal-tag">UP TO 50% OFF*</div></div>
+
+    <section id="shop">
+      <div class="section-head"><div><h2>Featured products</h2><p>Take a look at some popular picks.</p></div>
+        <div class="toolbar"><select id="sortSelect" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+      </div>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="features">
+      <div class="feature"><div class="feature-icon">📦</div><b>Careful order handling</b><p>Our planned marketplace model brings products through a central fulfilment process before delivery.</p></div>
+      <div class="feature"><div class="feature-icon">🎟️</div><b>Deals & redeem codes</b><p>Look forward to promotional codes, seasonal offers and exciting rewards.</p></div>
+      <div class="feature"><div class="feature-icon">↩️</div><b>Customer-first support</b><p>Clear return and refund policies will help customers shop with confidence.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><div><a class="logo" href="#" style="color:white">Vedansh<span>.</span></a><p>A new marketplace concept built around affordable shopping, exciting offers and a trusted experience for buyers and sellers.</p><small>© <span id="year"></span> Vedansh. Demo storefront.</small></div><div class="footer-links"><a href="#shop" style="color:inherit">Shop</a><a href="#" id="footerSeller" style="color:inherit">Become a seller</a><a href="#" id="policyBtn" style="color:inherit">Returns & support</a></div></div>
+  </footer>
+
+  <div class="overlay" id="cartOverlay" aria-hidden="true"><aside class="drawer">
+    <div class="drawer-head"><h2>Your cart</h2><button class="close" id="closeCart">✕</button></div>
+    <div id="cartItems"></div><div id="cartSummary"></div>
+  </aside></div>
+  <div class="modal" id="infoModal"><div class="modal-card"><div style="display:flex;justify-content:space-between;gap:12px"><h2 id="modalTitle">Welcome</h2><button class="close" id="closeModal">✕</button></div><div id="modalBody"></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const products = [
+      {id:1,name:"Wireless Bluetooth Headphones",category:"Electronics",price:1299,old:1799,icon:"🎧",rating:"★ 4.6 · Demo rating",color:""},
+      {id:2,name:"Everyday Cotton T-Shirt",category:"Fashion",price:499,old:699,icon:"👕",rating:"★ 4.4 · Demo rating",color:"green"},
+      {id:3,name:"Minimal Desk Lamp",category:"Home",price:899,old:1199,icon:"💡",rating:"★ 4.7 · Demo rating",color:"orange"},
+      {id:4,name:"Travel Backpack",category:"Lifestyle",price:799,old:999,icon:"🎒",rating:"★ 4.5 · Demo rating",color:"blue"},
+      {id:5,name:"Classic Wrist Watch",category:"Accessories",price:1499,old:1999,icon:"⌚",rating:"★ 4.3 · Demo rating",color:""},
+      {id:6,name:"Portable Bluetooth Speaker",category:"Electronics",price:999,old:1399,icon:"🔊",rating:"★ 4.6 · Demo rating",color:"green"},
+      {id:7,name:"Ceramic Coffee Mug Set",category:"Home",price:349,old:499,icon:"☕",rating:"★ 4.8 · Demo rating",color:"orange"},
+      {id:8,name:"Everyday Sunglasses",category:"Accessories",price:599,old:799,icon:"🕶️",rating:"★ 4.2 · Demo rating",color:"blue"}
+    ];
+    let cart = [];
+    let activeCategory = "All";
+    const money = n => "₹" + n.toLocaleString("en-IN");
+    const grid = document.getElementById("productGrid");
+    function renderProducts(){
+      let list = products.filter(p => (activeCategory==="All" || p.category===activeCategory) && p.name.toLowerCase().includes(document.getElementById("searchInput").value.toLowerCase()));
+      const sort = document.getElementById("sortSelect").value;
+      if(sort==="low") list.sort((a,b)=>a.price-b.price);
+      if(sort==="high") list.sort((a,b)=>b.price-a.price);
+      grid.innerHTML = list.length ? list.map(p=>`
+        <article class="product">
+          <div class="product-art ${p.color}"><span class="pill">DEMO ITEM</span>${p.icon}</div>
+          <div class="product-info"><h3>${p.name}</h3><div class="rating">${p.rating}</div>
+            <div><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div>
+            <div class="product-bottom"><small style="color:#667085">${p.category}</small><button class="add" onclick="addToCart(${p.id})">Add to cart +</button></div>
+          </div>
+        </article>`).join("") : '<p style="color:#667085">No products found. Try another search.</p>';
+    }
+    function addToCart(id){const found=cart.find(x=>x.id===id);if(found)found.qty++;else cart.push({id,qty:1});updateCart();showToast("Added to your cart");}
+    function updateCart(){
+      const count=cart.reduce((s,x)=>s+x.qty,0);document.getElementById("cartCount").textContent=count;
+      const items=document.getElementById("cartItems"),summary=document.getElementById("cartSummary");
+      if(!cart.length){items.innerHTML='<div class="empty">🛒<h3>Your cart is empty</h3><p>Add a few products to get started.</p></div>';summary.innerHTML="";return;}
+      items.innerHTML=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `<div class="cart-row"><div><b>${p.name}</b><small>${money(p.price)} each</small></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button>${x.qty}<button onclick="changeQty(${p.id},1)">+</button></div></div>`}).join("");
+      const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+      summary.innerHTML=`<div class="cart-total"><span>Subtotal</span><span>${money(total)}</span></div><button class="checkout" onclick="demoCheckout()">Continue to checkout</button><p style="font-size:11px;color:#667085;line-height:1.5">Demo only: checkout and payment are not connected.</p>`;
+    }
+    function changeQty(id,delta){const item=cart.find(x=>x.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(x=>x.id!==id);updateCart();}
+    function demoCheckout(){showInfo("Checkout preview","This is a front-end demo. No order has been placed and no payment has been collected. A real store will need a secure backend, payment integration, order management and verified delivery partners.");}
+    function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2100);}
+    function showInfo(title,body){document.getElementById("modalTitle").textContent=title;document.getElementById("modalBody").innerHTML=`<p>${body}</p><button id="modalOkay">Got it</button>`;document.getElementById("infoModal").classList.add("open");document.getElementById("modalOkay").onclick=closeInfo;}
+    function closeInfo(){document.getElementById("infoModal").classList.remove("open");}
+    document.getElementById("cartBtn").onclick=()=>{document.getElementById("cartOverlay").classList.add("open");updateCart();};
+    document.getElementById("closeCart").onclick=()=>document.getElementById("cartOverlay").classList.remove("open");
+    document.getElementById("cartOverlay").addEventListener("click",e=>{if(e.target.id==="cartOverlay")e.currentTarget.classList.remove("open")});
+    document.getElementById("closeModal").onclick=closeInfo;
+    document.getElementById("infoModal").addEventListener("click",e=>{if(e.target.id==="infoModal")closeInfo()});
+    document.getElementById("sellerBtn").onclick=()=>showInfo("Sell with Vedansh","We plan to welcome third-party sellers as the marketplace grows. Seller registration, product verification, inventory intake and seller payouts will be added in a future version.");
+    document.getElementById("footerSeller").onclick=e=>{e.preventDefault();document.getElementById("sellerBtn").click()};
+    document.getElementById("policyBtn").onclick=e=>{e.preventDefault();showInfo("Returns & support","A real store should publish clear return eligibility, time limits, refund timelines and customer support contact details before accepting orders. This demo does not process returns.");};
+    document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"});});
+    document.getElementById("searchInput").addEventListener("input",renderProducts);
+    document.getElementById("sortSelect").addEventListener("change",renderProducts);
+    document.querySelectorAll(".category").forEach(btn=>btn.addEventListener("click",()=>{activeCategory=btn.dataset.category;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"});}));
+    document.getElementById("year").textContent=new Date().getFullYear();
+    renderProducts();updateCart();
+  </script>
+</body>
+</html>
